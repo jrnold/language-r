@@ -5,6 +5,9 @@
   'Attach':
     'prefix': 'att'
     'body': 'attach(${1:frame})'
+  'Apply':
+    'prefix': 'apply'
+    'body': 'apply(${1:array}, ${2:margin}, ${3:...})'
   'Cummulative':
     'prefix': 'cum'
     'body': 'cum${1:max}(${2:x})'
@@ -17,30 +20,72 @@
   'Divide Into Intervals':
     'prefix': 'cut'
     'body': 'cut(${1:x}, breaks = c(${2:${3:}, ${4:max(${1:x})}}))'
+  'Else':
+    'prefix': 'el'
+    'body': 'else {\n\t${0}\n}'
+  'Else If':
+    'prefix': 'ei'
+    'body': 'else if (${1:condition}) {\n\t${0}\n}'
   'Factor':
     'prefix': 'fac'
     'body': 'factor(${1:x})'
   'For Loop':
     'prefix': 'for'
-    'body': 'for (${1:i} in ${2:seq}) ${3:{$0\\}}'
+    'body': 'for (${1:variable} in ${2:vector}) {\n\t${0}\n}'
   'Function':
     'prefix': 'fun'
-    'body': 'function(${1:x}) ${3:{$0\\}}'
+    'body': '${1:name} <- function(${2:variables}) {\n\t${0}\n}'
+  'If':
+    'prefix': 'if'
+    'body': 'if (${1:condition}) {\n\t${0}\n}'
   'Ifelse':
     'prefix': 'ife'
     'body': 'ifelse(${1:test}, ${2:yes}, ${3:no})'
+  'Lapply':
+    'prefix': 'lapply'
+    'body': 'lapply(${1:list}, ${2:function})'
   'Length':
     'prefix': 'len'
     'body': 'length(${1:x})'
+  'Library':
+    'prefix': 'lib'
+    'body': 'library(${1:package})'
   'Load Dataset':
     'prefix': 'dat'
     'body': 'data(${1:name})'
+  'Mapply':
+    'prefix': 'mapply'
+    'body': 'mapply(${1:list}, ${2:...})'
+  'Matrix':
+    'prefix': 'mat'
+    'body': 'matrix(${1:data}, nrow = ${2:rows}, ncol = ${3:cols})'
   'Polygonal Line':
     'prefix': 'lin'
     'body': 'lines(${1:x}${2:, color=${3:red}})'
+  'Rapply':
+    'prefix': 'rapply'
+    'body': 'rapply(${1:list}, ${2:function})'
   'Read From File':
     'prefix': 'rea'
     'body': 'read.table("${1:filename}"${2:, header = ${3:TRUE},  sep = "${4:\\t}",  stringsAsFactors = ${5:FALSE}})'
+  'Require':
+    'prefix': 'req'
+    'body': 'require(${1:package})'
+  'Return':
+    'prefix': 'ret'
+    'body': 'return(${1:package})'
+  'Sapply':
+    'prefix': 'sapply'
+    'body': 'sapply(${1:list}, ${2:function})'
+  'setGeneric':
+    'prefix': 'sg'
+    'body': 'setGeneric("${1:generic}", function(${2:x, ...}) {\n\tstandardGeneric("${1:generic}")\n})${0}'
+  'setMethod':
+    'prefix': 'sm'
+    'body': 'setMethod("${1:generic}", ${2:class}, function(${2:x, ...}) {\n\t${0}\n})'
+  'setClass':
+    'prefix': 'sc'
+    'body': 'setClass("${1:Class}", slots = c(${2:name = "type"}))'
   'Sequence (from,to,by)':
     'prefix': 'seq'
     'body': 'seq(${1:from}, ${2:to}, ${3:by})'
@@ -48,8 +93,23 @@
     'prefix': 'sor'
     'body': 'sort(${1:x})'
   'Source':
-    'prefix': 'sou'
-    'body': 'source(${1:"${2:}"}${3:, chdir = ${4:TRUE}})'
+    'prefix': 'src'
+    'body': 'source("${1:file.R}")'
+  'Switch':
+    'prefix': 'switch'
+    'body': 'switch (${1:object},\n\t${2:case} = ${3:action}\n)'
+  'Ts':
+    'prefix': 'ts'
+    'body': '`r paste("#", date(), "------------------------------\\\\n")`'
+  'Tapply':
+    'prefix': 'tapply'
+    'body': 'tapply(${1:list}, ${2:index}, ${3:function})'
+  'Vapply':
+    'prefix': 'vapply'
+    'body': 'vapply(${1:list}, ${2:function}, FUN.VALUE = ${3:type}, ${4:...})'
+  'While':
+    'prefix': 'while'
+    'body': 'while (${1:condition}) {\n\t${0}\n}'
   'file.choose':
     'prefix': 'fch'
     'body': '${1:file = }file.choose()${0:}'
